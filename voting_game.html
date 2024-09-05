@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>voting Layout</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <!-- Panel 1 -->
+        <div class="col-md-3">
+          <div class="card text-center mb-4 h-100">
+            <img
+              src="assets/images/bjp.webp"
+              class="card-img-top img-fluid"
+              alt="Image 1"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title">bjp</h5>
+
+              <div>
+                <h6 id="s1">0</h6>
+              </div>
+              <div class="mt-auto">
+                <button id="btn1" class="btn btn-primary w-100" data-score="s1">Vote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel 2 -->
+        <div class="col-md-3">
+          <div class="card text-center mb-4 h-100">
+            <img
+              src="assets/images/congress.webp"
+              class="card-img-top img-fluid"
+              alt="Image 2"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title">Congress</h5>
+              <div>
+                <h6 id="s2" >0</h6>
+              </div>
+              <div class="mt-auto">
+                <button id="btn2" class="btn btn-primary w-100" data-score="s2">Vote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel 3 -->
+        <div class="col-md-3">
+          <div class="card text-center mb-4 h-100">
+            <img
+              src="assets/images/jansena.webp"
+              class="card-img-top img-fluid"
+              alt="Image 3"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title">jansena</h5>
+              <div>
+                <h6 id="s3">0</h6>
+              </div>
+              <div class="mt-auto">
+                <button id="btn3" class="btn btn-primary w-100" data-score="s3">Vote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel 4 -->
+        <div class="col-md-3">
+          <div class="card text-center mb-4 h-100">
+            <img
+              src="assets/images/Samajwadi_Party.webp"
+              class="card-img-top img-fluid"
+              alt="Image 4"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title">SP</h5>
+              <div>
+                <h6 id="s4">0</h6>
+              </div>
+              <div class="mt-auto">
+                <button id="btn4" class="btn btn-primary w-100" data-score="s4">Vote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Finish Button -->
+      <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+          <button class="btn btn-success mt-3" onclick="endGame()">Finish Button</button>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/vote_app.js"></script>
+  </body>
+</html>
