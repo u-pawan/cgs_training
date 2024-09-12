@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #80deea); /* Soft gradient background */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Bar */
+        .navbar {
+            background-color: #00796b; /* Deep Teal */
+            color: #fff;
+            padding: 10px 15px;
+        }
+        .navbar-brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #004d40; /* Dark Teal */
+            padding-top: 20px;
+            height: 100vh;
+            color: #fff;
+        }
+        .sidebar .nav-link {
+            color: #fff;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #00251a; /* Even darker teal */
+        }
+
+        .header {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+        .product-link {
+            display: block;
+            color: #00796b;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        .product-link:hover {
+            text-decoration: underline;
+        }
+        .inventory-container {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .form-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        table {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        thead {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .btn-danger {
+            border-radius: 8px;
+        }
+        .btn-danger:hover {
+            background-color: #d9534f;
+        }
+        .container {
+            padding: 20px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .navbar-toggler {
+                display: block;
+            }
+            .navbar-collapse {
+                display: none;
+            }
+            .navbar-collapse.show {
+                display: block;
+            }
+            .main-content {
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Toggler -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Warehouse Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Additional links can be added here -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar d-none d-md-block">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Suppliers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container inventory-container col-md-9">
+                <h1 class="my-4 text-center">Warehouse Management System</h1>
+                
+                <!-- Form to Add/Update Warehouse Items -->
+                <div class="form-section">
+                    <h3>Add or Update Warehouse Item</h3>
+                    <form id="warehouseForm">
+                        <div class="mb-3">
+                            <label for="itemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="itemName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select class="form-select" id="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Raw Materials">Raw Materials</option>
+                                <option value="Work-in-Progress">Work-in-Progress</option>
+                                <option value="Finished Goods">Finished Goods</option>
+                                <option value="Supplies">Supplies</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" step="0.01" class="form-control" id="price" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add/Update Item</button>
+                    </form>
+                </div>
+                
+                <!-- Warehouse Table -->
+                <h3>Warehouse List</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="warehouseTableBody">
+                        <!-- Warehouse items will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample warehouse data
+        const warehouse = [];
+
+        // Function to render warehouse table
+        function renderWarehouse() {
+            const tableBody = document.getElementById('warehouseTableBody');
+            tableBody.innerHTML = '';
+            warehouse.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.category}</td>
+                    <td>${item.location}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="deleteItem(${index})">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to add or update an item
+        document.getElementById('warehouseForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const itemName = document.getElementById('itemName').value;
+            const category = document.getElementById('category').value;
+            const location = document.getElementById('location').value;
+            const quantity = document.getElementById('quantity').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Check if item already exists
+            const existingItemIndex = warehouse.findIndex(item => item.name === itemName && item.category === category);
+            if (existingItemIndex > -1) {
+                // Update existing item
+                warehouse[existingItemIndex] = { name: itemName, category, location, quantity, price };
+            } else {
+                // Add new item
+                warehouse.push({ name: itemName, category, location, quantity, price });
+            }
+
+            // Render updated table
+            renderWarehouse();
+
+            // Clear form fields
+            document.getElementById('warehouseForm').reset();
+        });
+
+        // Function to delete an item
+        function deleteItem(index) {
+            warehouse.splice(index, 1);
+            renderWarehouse();
+        }
+
+        // Initial render of warehouse table
+        renderWarehouse();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

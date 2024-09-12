@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .profile-card {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .profile-section {
+            padding: 15px;
+        }
+
+        .details-section, .extra-section {
+            margin-top: 20px;
+        }
+
+        .box {
+            background-color: #f0f0f0;
+            height: 100px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Left Profile Sidebar -->
+            <div class="col-md-2">
+                <div class="profile-card text-center p-3">
+                    <!-- Profile Image -->
+                    <div class="profile-image mx-auto"></div>
+                    <!-- Profile Info -->
+                    <div class="profile-section">
+                        <h4 id="userName" class="fw-bold">User Name</h4>
+                        <p id="jobTitle">Employee ID</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Profile Details -->
+            <div class="col-md-10">
+                <div class="profile-card">
+                    <!-- Main Details Section -->
+                    <div class="details-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <h5>Email:</h5>
+                                    <p id="userEmail">user@example.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <h5>Phone:</h5>
+                                    <p id="userPhone">+123 456 7890</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Extra Boxes -->
+                    <div class="extra-section">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="box"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch user data from localStorage and display on the profile page
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Retrieve user info from localStorage
+            const userName = localStorage.getItem('userName');
+            const userId = localStorage.getItem('userId');
+            const userEmail = localStorage.getItem('userEmail');
+            const userPhone = localStorage.getItem('userPhone');
+
+            // Populate profile page
+            document.getElementById('userName').textContent = userName || 'N/A'; 
+            document.getElementById('jobTitle').textContent = userId || 'N/A';  
+            document.getElementById('userEmail').textContent = userEmail || 'N/A'; 
+            document.getElementById('userPhone').textContent = userPhone || 'N/A'; 
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
