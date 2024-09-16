@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <style>
+        table {
+            width: 100%;
+            border: 2px solid #ccc; /* Outer border for the table */
+            border-collapse: separate; /* Cells have individual borders */
+            border-spacing: 10px; /* Space between cells */
+        }
+
+        td {
+            border: 1px solid #ccc; /* Borders around each cell */
+            padding: 20px; /* Padding for table cells for better spacing */
+            text-align: center; /* Center text within the cells */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for cells */
+        }
+
+        td[contenteditable="true"] {
+            background-color: #f9f9f9; /* Light background color for editable cells */
+        }
+
+        td[contenteditable="true"]:hover {
+            background-color: #eef; /* Hover effect for editable cells */
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5 w-50">
+        <h2 class="text-center mb-4">Table Generator</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="tableForm">
+                            <div class="mb-3">
+                                <label for="rows" class="form-label">Enter number of rows:</label>
+                                <input type="number" class="form-control" id="rows" min="1" placeholder="Number of rows">
+                            </div>
+                            <div class="mb-3">
+                                <label for="columns" class="form-label">Enter number of columns:</label>
+                                <input type="number" class="form-control" id="columns" min="1" placeholder="Number of columns">
+                            </div>
+                            <button type="button" class="btn btn-primary w-100" onclick="generateTable()">Generate Table</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Table -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div id="tableContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateTable() {
+            const numRows = document.getElementById('rows').value;
+            const numCols = document.getElementById('columns').value;
+
+            // Validate user inputs
+            if (!numRows || !numCols || numRows <= 0 || numCols <= 0) {
+                alert('Please enter valid numbers for both rows and columns.');
+                return;
+            }
+
+            // Get the table container
+            const tableContainer = document.getElementById('tableContainer');
+
+            tableContainer.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.classList.add('table', 'w-100');
+
+            // Populate table
+            for (let i = 0; i < numRows; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < numCols; j++) {
+                    const cell = document.createElement('td');
+                    cell.setAttribute('contenteditable', 'true'); 
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+
+            tableContainer.appendChild(table);
+        }
+    </script>
+</body>
+</html>
