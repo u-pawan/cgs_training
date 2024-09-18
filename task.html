@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4fc4eb 0%, #9aa2a7 100%);
+        margin: 0;
+      }
+
+      .profile-container {
+        width: 600px;
+        padding: 20px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #dedcda 0%, #434344 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .user-info img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+      }
+
+      .user-info h2 {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+
+      .details-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .card {
+        width: 48%;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #e7c2f8 0%, #fd37b4 100%);
+      }
+
+      .card h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-decoration: underline;
+      }
+
+      .btn-new {
+        width: 50%;
+        padding: 10px;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-container">
+      <div class="user-info">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Profile Picture"
+          id="profile-pic"
+        />
+        <h2 id="user-name">Name and Title</h2>
+      </div>
+
+      <div class="details-container">
+        <div class="card">
+          <h5>User Details</h5>
+          <p id="user-email">Email: example@example.com</p>
+          <p id="user-dob">DOB: 01-01-1990</p>
+          <p id="user-gender">Gender: Male</p>
+          <p id="user-contact">Contact: 1234567890</p>
+        </div>
+        <div class="card">
+          <h5>User Address</h5>
+          <p id="user-address">Address: Street, City, Country</p>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-new" id="new-btn">New</button>
+    </div>
+
+    <script src="assets/js/task.js"></script>
+  </body>
+</html>
