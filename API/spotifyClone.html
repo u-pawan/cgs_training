@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gypfy</title>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/clone.css">
+</head>
+<body class="bg-dark text-light">
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark text-light">
+        <div class="position-sticky">
+          <!-- Profile Section -->
+          <div class="text-center py-4">
+            <img src="assets/images/default.jpg" alt="Profile Image" class="img-fluid rounded-circle profile-img">
+            <h3 class="mt-2">Welcome Pawan</h3>
+          </div>
+
+          <!-- Playlists -->
+          <h5 class="px-3">More To Explore</h5>
+          <ul class="nav flex-column px-3">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Playlist🎵</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#">Album📻</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Liked Songs💖</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+        <div class="text-center">
+          <h1 class="display-4 text-success mb-4">Gypfy Player</h1>
+
+          <!-- Search Bar -->
+          <div class="input-group mb-4 w-75 mx-auto">
+            <input type="text" id="search-query" class="form-control form-control-lg" placeholder="Search for a song...">
+            <button id="search-button" class="btn btn-success btn-lg">Search</button>
+          </div>
+        </div>
+
+        <!-- Song player and details -->
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center">
+            <img id="album-cover" src="assets/images/DEMO.jpg" alt="Album cover" class="img-fluid rounded shadow album-cover">
+            <div id="track-info" class="mt-4">
+              <h2 id="track-title" class="track-title">Search A Song</h2>
+              <p id="artist-name" class="artist-name text-muted">Artist Name</p>
+            </div>
+            <audio id="audio-player" class="w-100 mt-3" controls></audio>
+          </div>
+        </div>
+
+        <!-- Search results displayed as cards -->
+        <div id="search-results" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-4 mt-4"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/clone.js"></script>
+</body>
+</html>
