@@ -1,0 +1,91 @@
+/* Body styling */
+body {
+    background-color: #eee4e4;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Sidebar styling with linear gradient */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #03aa3e, #09f4bd); /* Linear gradient */
+    overflow-y: auto;
+  }
+  
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #1DB954; /* Spotify green border */
+  }
+  
+  .nav-link {
+    color: #fff;
+  }
+  
+  .nav-link.active {
+    background-color: #1DB954; /* Highlight active link */
+    color: #fff;
+  }
+  
+  .nav-link:hover {
+    background-color: #444; /* Darken link on hover */
+  }
+  
+  /* Main content styling */
+  main {
+    margin-left: 250px; /* Adjust based on sidebar width */
+  }
+  
+  /* Album cover in player */
+  .album-cover {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  /* Track info */
+  .track-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .artist-name {
+    font-size: 18px;
+    color: #b3b3b3;
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: #333;
+    border: none;
+  }
+  
+  .card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color: #b3b3b3;
+  }
+  
+  .card .btn {
+    background-color: #1DB954;
+    border: none;
+  }
+  
+  .card .btn:hover {
+    background-color: #1ed760;
+  }
+  
